@@ -1,20 +1,19 @@
-"use client";
 import "styles/globals.css";
-import { SessionProvider } from "next-auth/react";
 import { ReactNode } from "react";
 import AppBar from "./AppBar";
+import Provider from "./Provider";
+
 interface IProps {
   children: ReactNode;
-  session: any;
 }
-export default function RootLayout({ children, session }: IProps) {
+export default function RootLayout({ children }: IProps) {
   return (
     <html lang="en">
       <body>
-        <SessionProvider session={session}>
+        <Provider>
           <AppBar />
-          <div className={"  h-screen "}>{children}</div>
-        </SessionProvider>
+          <div className={"  min-h-screen "}>{children}</div>
+        </Provider>
       </body>
     </html>
   );
